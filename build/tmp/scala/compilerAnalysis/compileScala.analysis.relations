@@ -1,0 +1,23 @@
+products:
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala -> build/classes/main/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod$.class
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala -> build/classes/main/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.class
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala -> build/classes/main/com/xianfengting/minecraft/remote_computer_controller/common/ClientProxy.class
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala -> build/classes/main/com/xianfengting/minecraft/remote_computer_controller/common/CommonProxy.class
+binary dependencies:
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala -> /home/src-resources/.gradle/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/snapshot/20171003/forgeSrc-1.12.2-14.23.5.2768.jar
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala -> /home/src-resources/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.8.1/e801d13612e22cad62a3f4f3fe7fdbe6334a8e72/log4j-api-2.8.1.jar
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala -> /home/src-resources/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.1/e11da23da3eabab9f4777b9220e60d44c1aab6a/scala-library-2.11.1.jar
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala -> /usr/java/jdk1.8.0_191/jre/lib/rt.jar
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala -> /home/src-resources/.gradle/caches/minecraft/net/minecraftforge/forge/1.12.2-14.23.5.2768/snapshot/20171003/forgeSrc-1.12.2-14.23.5.2768.jar
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala -> /home/src-resources/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.8.1/e801d13612e22cad62a3f4f3fe7fdbe6334a8e72/log4j-api-2.8.1.jar
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala -> /home/src-resources/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.1/e11da23da3eabab9f4777b9220e60d44c1aab6a/scala-library-2.11.1.jar
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala -> /usr/java/jdk1.8.0_191/jre/lib/rt.jar
+source dependencies:
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala -> src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala -> src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala
+external dependencies:
+class names:
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala -> com.xianfengting.minecraft.remote_computer_controller.RemoteComputerControllerMod
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/RemoteComputerControllerMod.scala -> com.xianfengting.minecraft.remote_computer_controller.RemoteComputerControllerMod$
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala -> com.xianfengting.minecraft.remote_computer_controller.common.ClientProxy
+   src/main/scala/com/xianfengting/minecraft/remote_computer_controller/common/Proxies.scala -> com.xianfengting.minecraft.remote_computer_controller.common.CommonProxy

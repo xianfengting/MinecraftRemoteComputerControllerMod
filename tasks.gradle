@@ -1,0 +1,32 @@
+
+task generateBuildInfoTmpFile << {
+    def sb = new StringBuilder()
+
+    sb.append('\n')
+    sb.append("================ Last Build Information ================")
+    sb.append('\n')
+
+    sb.append("Date: ")
+    def sdf0 = new java.text.SimpleDateFormat("yyyy-MM-dd")
+    def sdf1 = new java.text.SimpleDateFormat("HH:mm:ss")
+    sb.append(sdf0.format(new java.util.Date()))
+    sb.append('\n')
+    sb.append("Time: ")
+    sb.append(sdf1.format(new java.util.Date()))
+    sb.append('\n')
+
+    sb.append('\n')
+    sb.append("========================================================")
+    sb.append('\n')
+
+    def f = new java.io.File("$buildDir/buildInfo.txt")
+    if (!f.exists()) {
+        println 'The file \'buildInfo.txt\' does not exist and the task is going to create it.'
+        f.createNewFile()
+    }
+    def fw = new java.io.FileWriter(f)
+    fw.write(sb.toString())
+    fw.close()
+}
+
+build.dependsOn generateBuildInfoTmpFile
