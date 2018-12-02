@@ -1,7 +1,7 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
+  "modid": "remote_computer_controller",
+  "name": "Remote Computer Controller",
   "description": "Example placeholder mod.",
   "version": "1.0",
   "mcversion": "1.12.2",

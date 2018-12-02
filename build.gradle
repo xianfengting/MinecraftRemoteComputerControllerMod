@@ -20,7 +20,7 @@ apply from: './tasks.gradle'
 version = "1.0"
 //group = "com.yourname.modid"
 group = "com.xianfengting.minecraft.remote_computer_controller" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+archivesBaseName = "com.xianfengting.minecraft.remote_computer_controller"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
