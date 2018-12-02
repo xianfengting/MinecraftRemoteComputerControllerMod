@@ -1,32 +1,137 @@
 
-task generateBuildInfoTmpFile << {
-    def sb = new StringBuilder()
+def printJavaAndOSDetails() {
 
-    sb.append('\n')
-    sb.append("================ Last Build Information ================")
-    sb.append('\n')
+//    def props=System.getProperties()
+//    System.out.println("Java的运行环境版本: " + props.getProperty("java.version"));
+//    System.out.println("Java的运行环境供应商: " + props.getProperty("java.vendor"));
+//    System.out.println("Java供应商的URL: " + props.getProperty("java.vendor.url"));
+//    System.out.println("Java的安装路径: " + props.getProperty("java.home"));
+//    System.out.println("Java的虚拟机规范版本: " + props.getProperty("java.vm.specification.version"));
+//    System.out.println("Java的虚拟机规范供应商: " + props.getProperty("java.vm.specification.vendor"));
+//    System.out.println("Java的虚拟机规范名称: " + props.getProperty("java.vm.specification.name"));
+//    System.out.println("Java的虚拟机实现版本: " + props.getProperty("java.vm.version"));
+//    System.out.println("Java的虚拟机实现供应商: " + props.getProperty("java.vm.vendor"));
+//    System.out.println("Java的虚拟机实现名称: " + props.getProperty("java.vm.name"));
+//    System.out.println("Java运行时环境规范版本: " + props.getProperty("java.specification.version"));
+//    System.out.println("Java运行时环境规范供应商: " + props.getProperty("java.specification.vender"));
+//    System.out.println("Java运行时环境规范名称: " + props.getProperty("java.specification.name"));
+//    System.out.println("Java的类格式版本号: " + props.getProperty("java.class.version"));
+//    System.out.println("Java的类路径: " + props.getProperty("java.class.path"));
+//    System.out.println("加载库时搜索的路径列表: " + props.getProperty("java.library.path"));
+//    System.out.println("默认的临时文件路径: " + props.getProperty("java.io.tmpdir"));
+//    System.out.println("一个或多个扩展目录的路径: " + props.getProperty("java.ext.dirs"));
+//    System.out.println("操作系统的名称: " + props.getProperty("os.name"));
+//    System.out.println("操作系统的构架: " + props.getProperty("os.arch"));
+//    System.out.println("操作系统的版本: " + props.getProperty("os.version"));
+//    System.out.println("文件分隔符: " + props.getProperty("file.separator")); //在 unix 系统中是＂／＂ System.out.println("路径分隔符: "+props.getProperty("path.separator"));//在 unix 系统中是＂:＂ System.out.println("行分隔符: "+props.getProperty("line.separator"));//在 unix 系统中是＂/n＂ System.out.println("用户的账户名称: "+props.getProperty("user.name"));
+//    System.out.println("用户的主目录: " + props.getProperty("user.home"));
+//    System.out.println("用户的当前工作目录: " + props.getProperty("user.dir"));
 
-    sb.append("Date: ")
-    def sdf0 = new java.text.SimpleDateFormat("yyyy-MM-dd")
-    def sdf1 = new java.text.SimpleDateFormat("HH:mm:ss")
-    sb.append(sdf0.format(new java.util.Date()))
-    sb.append('\n')
-    sb.append("Time: ")
-    sb.append(sdf1.format(new java.util.Date()))
-    sb.append('\n')
-
-    sb.append('\n')
-    sb.append("========================================================")
-    sb.append('\n')
-
-    def f = new java.io.File("$buildDir/buildInfo.txt")
-    if (!f.exists()) {
-        println 'The file \'buildInfo.txt\' does not exist and the task is going to create it.'
-        f.createNewFile()
-    }
-    def fw = new java.io.FileWriter(f)
-    fw.write(sb.toString())
-    fw.close()
+    def props = System.getProperties()
+    System.out.println("---------------- Java & OS Details ----------------")
+    System.out.println("Java Runtime Version: " + props.getProperty("java.version"));
+    System.out.println("Java Runtime Provider: " + props.getProperty("java.vendor"));
+    System.out.println("Java Setup Path: " + props.getProperty("java.home"));
+    System.out.println("Java VM Standard Version: " + props.getProperty("java.vm.specification.version"));
+    System.out.println("Java VM Standard Provider: " + props.getProperty("java.vm.specification.vendor"));
+    System.out.println("Java VM Standard Name: " + props.getProperty("java.vm.specification.name"));
+    System.out.println("Java VM Implement Version: " + props.getProperty("java.vm.version"));
+    System.out.println("Java VM Implement Provider: " + props.getProperty("java.vm.vendor"));
+    System.out.println("Java VM Implement Name: " + props.getProperty("java.vm.name"));
+    System.out.println("Java Runtime Standard Version: " + props.getProperty("java.specification.version"));
+    System.out.println("Java Runtime Standard Provider: " + props.getProperty("java.specification.vender"));
+    System.out.println("Java Runtime Standard Name: " + props.getProperty("java.specification.name"));
+    System.out.println("Java Class Format Version: " + props.getProperty("java.class.version"));
+    System.out.println("Java Class Path: " + props.getProperty("java.class.path"));
+    System.out.println("Java Library Loading Path: " + props.getProperty("java.library.path"));
+    System.out.println("Java Default Temp File Path: " + props.getProperty("java.io.tmpdir"));
+    System.out.println("Java Extend Directory Path" + props.getProperty("java.ext.dirs"));
+    System.out.println("OS Name: " + props.getProperty("os.name"));
+    System.out.println("OS Framework: " + props.getProperty("os.arch"));
+    System.out.println("OS Version: " + props.getProperty("os.version"));
+    System.out.println("OS File Delimiter: " + props.getProperty("file.separator"));
+    //在 unix 系统中是＂／＂ System.out.println("路径分隔符: "+props.getProperty("path.separator"));//在 unix 系统中是＂:＂ System.out.println("行分隔符: "+props.getProperty("line.separator"));//在 unix 系统中是＂/n＂ System.out.println("用户的账户名称: "+props.getProperty("user.name"));
+    System.out.println("User's Home Directory: " + props.getProperty("user.home"));
+    System.out.println("User's Current Working Directory: " + props.getProperty("user.dir"));
+    System.out.println("---------------------------------------------------")
 }
 
-build.dependsOn generateBuildInfoTmpFile
+task generateBuildInfoTmpFile {
+    doLast {
+        def sb = new StringBuilder()
+
+        sb.append('\n')
+        sb.append("================ Last Build Information ================")
+        sb.append('\n')
+
+        sb.append("Date: ")
+        def sdf0 = new java.text.SimpleDateFormat("yyyy-MM-dd")
+        def sdf1 = new java.text.SimpleDateFormat("HH:mm:ss")
+        sb.append(sdf0.format(new java.util.Date()))
+        sb.append('\n')
+        sb.append("Time: ")
+        sb.append(sdf1.format(new java.util.Date()))
+        sb.append('\n')
+
+        sb.append('\n')
+        sb.append("========================================================")
+        sb.append('\n')
+
+        def f = new java.io.File("$buildDir/buildInfo.txt")
+        if (!f.exists()) {
+            println 'The file \'buildInfo.txt\' does not exist and the task is going to create it.'
+            f.createNewFile()
+        }
+        def fw = new java.io.FileWriter(f)
+        fw.write(sb.toString())
+        fw.close()
+    }
+}
+
+task getJavaAndOSDetails {
+    doFirst {
+        printJavaAndOSDetails()
+    }
+}
+
+build.dependsOn generateBuildInfoTmpFile, getJavaAndOSDetails
+//build.doFirst {
+//    printJavaAndOSDetails()
+//}
+
+//gradle.projectsLoaded {
+//    gradle.getTaskGraph().getAllTasks().forEach { taskObj ->
+//        taskObj.doFirst {
+//            printJavaAndOSDetails()
+//        }
+//    }
+//}
+
+//gradle.addBuildListener(new BuildListener() {
+//    @Override
+//    void buildStarted(Gradle gradle) {
+//
+//    }
+//
+//    @Override
+//    void settingsEvaluated(Settings settings) {
+//
+//    }
+//
+//    @Override
+//    void projectsLoaded(Gradle gradle) {
+//
+//    }
+//
+//    @Override
+//    void projectsEvaluated(Gradle gradle) {
+//        gradle.getTaskGraph().getAllTasks().forEach { taskObj ->
+//
+//        }
+//    }
+//
+//    @Override
+//    void buildFinished(BuildResult result) {
+//
+//    }
+//})
