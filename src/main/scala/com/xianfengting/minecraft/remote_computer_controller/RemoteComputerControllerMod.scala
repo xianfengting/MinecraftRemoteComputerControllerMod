@@ -2,7 +2,7 @@ package com.xianfengting.minecraft.remote_computer_controller
 
 import com.xianfengting.minecraft.remote_computer_controller.common.CommonProxy
 import net.minecraftforge.fml.common.{Mod, SidedProxy}
-import net.minecraftforge.fml.common.event.{FMLInitializationEvent, FMLPostInitializationEvent, FMLPreInitializationEvent}
+import net.minecraftforge.fml.common.event.{FMLConstructionEvent, FMLInitializationEvent, FMLPostInitializationEvent, FMLPreInitializationEvent}
 import org.apache.logging.log4j.{LogManager, Logger}
 
 //@Mod(modid = "remote_computer_controller", name = "Remote Computer Controller")
@@ -18,14 +18,18 @@ object RemoteComputerControllerMod {
 
   protected[remote_computer_controller] var logger: Logger = _
   @SidedProxy(
-    clientSide = "com.xianfengting.minecraft.remote_computer_controller.ClientProxy",
-    serverSide = "com.xianfengting.minecraft.remote_computer_controller.CommonProxy")
-  protected[remote_computer_controller] var proxy: CommonProxy = _
+    clientSide = "com.xianfengting.minecraft.remote_computer_controller.common.ClientProxy",
+    serverSide = "com.xianfengting.minecraft.remote_computer_controller.common.CommonProxy")
+  var proxy: CommonProxy = _
 
+  @Mod.EventHandler
+  def onModConstruction(event: FMLConstructionEvent): Unit = {
+    RemoteComputerControllerMod.logger = LogManager.getLogger()
+    RemoteComputerControllerMod.proxy.onModConstruction(event)
+  }
 
   @Mod.EventHandler
   def onModPreInitialize(event: FMLPreInitializationEvent): Unit = {
-    RemoteComputerControllerMod.logger = LogManager.getLogger()
     RemoteComputerControllerMod.proxy.onModPreInitialize(event)
   }
 

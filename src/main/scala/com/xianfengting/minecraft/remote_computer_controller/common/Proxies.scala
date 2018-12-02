@@ -3,11 +3,18 @@ package com.xianfengting.minecraft.remote_computer_controller.common
 import com.xianfengting.minecraft.remote_computer_controller.RemoteComputerControllerMod
 import com.xianfengting.minecraft.remote_computer_controller.event.MainEventHandler
 import net.minecraftforge.common.MinecraftForge
-import net.minecraftforge.fml.common.event.{FMLInitializationEvent, FMLPostInitializationEvent, FMLPreInitializationEvent}
+import net.minecraftforge.fml.common.event.{FMLConstructionEvent, FMLInitializationEvent, FMLPostInitializationEvent, FMLPreInitializationEvent}
 import org.apache.logging.log4j.LogManager
 
 class CommonProxy {
-  protected val logger = RemoteComputerControllerMod.logger
+  private var logger = RemoteComputerControllerMod.logger
+
+  def onModConstruction(event: FMLConstructionEvent): Unit = {
+    if (logger == null) {
+      logger = RemoteComputerControllerMod.logger
+      logger.warn(s"${RemoteComputerControllerMod.MOD_NAME}: The logger of the proxy is not set and now it has been set.")
+    }
+  }
 
   def onModPreInitialize(event: FMLPreInitializationEvent): Unit = {
     logger.debug(RemoteComputerControllerMod.MOD_NAME + "'s FMLPreInitializationEvent attached!")
@@ -15,7 +22,8 @@ class CommonProxy {
 
   def onModInitialize(event: FMLInitializationEvent): Unit = {
     logger.debug(RemoteComputerControllerMod.MOD_NAME + "'s FMLInitializationEvent attached!")
-    MinecraftForge.EVENT_BUS.register(MainEventHandler)
+    MainEventHandler.initializeInstance()
+    MinecraftForge.EVENT_BUS.register(MainEventHandler())
   }
 
   def onModPostInitialize(event: FMLPostInitializationEvent): Unit = {

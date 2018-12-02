@@ -13,7 +13,7 @@ class MainEventHandler private {
   }
 
   @SubscribeEvent
-  def onLivingFall(event: LivingFallEvent) = {
+  def onLivingFall(event: LivingFallEvent) : Unit = {
     if (event.getEntityLiving.isServerWorld) {
       event.getEntityLiving match {
         case player : EntityPlayerMP =>
@@ -26,8 +26,12 @@ class MainEventHandler private {
 object MainEventHandler {
   var instance: MainEventHandler = _
 
-  def apply: MainEventHandler = {
+  protected[remote_computer_controller] def initializeInstance() : Unit = {
     if (instance == null) instance = new MainEventHandler
+  }
+
+  def apply(): MainEventHandler = {
+    initializeInstance()
     instance
   }
 }
